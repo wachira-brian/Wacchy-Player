@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2d2d2d;
+  color: #ffc266;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.player-wrapper {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px;
+}
+
+.player-ctn {
+  border-radius: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #373737;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.player-heading {
+  text-align: center;
+  color: #ffc266;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.file-input {
+  width: 85%;
+  max-width: 320px;
+  margin: 15px auto;
+  padding: 10px;
+  background-color: #555555;
+  color: #ffffff;
+  border: 3px solid #66ff8a;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+}
+
+.file-input::-webkit-file-upload-button {
+  background-color: #66ff8a;
+  color: #2d2d2d;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.file-input:hover {
+  background-color: #666666;
+  border-color: #ffc266;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: #d9d9f2;
+  cursor: pointer;
+  border-radius: 10px;
+  height: 8px; /* Slightly thicker for visibility */
+  margin: 10px 0; /* Add spacing */
+}
+
+#myBar {
+  width: 0%;
+  height: 100%;
+  background-color: #ffc266; /* Orange for elapsed time */
+  border-radius: 10px;
+  transition: width 0.1s linear; /* Smooth movement */
+}
+
+.btn-action {
+  cursor: pointer;
+  padding-top: 10px;
+  width: 30px;
+}
+
+.btn-ctn,
+.infos-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.infos-ctn {
+  padding-top: 10px; /* Reduced for tighter layout */
+}
+
+.btn-ctn > div {
+  padding: 5px;
+  margin: 10px 5px;
+}
+
+.infos-ctn > div {
+  margin: 5px; /* Adjusted for consistency */
+  color: #66ff8a;
+  font-size: 14px;
+}
+
+.first-btn {
+  margin-left: 3px;
+}
+
+.duration {
+  margin-left: 10px;
+}
+
+.title {
+  margin-left: 10px;
+  width: 100%;
+  max-width: 210px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-ctn {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.playlist-track-ctn {
+  display: flex;
+  background-color: #464646;
+  margin-top: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.playlist-track-ctn > div {
+  margin: 10px;
+}
+
+.playlist-info-track {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-info-track,
+.playlist-duration {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: #0bbfbc;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.active-track {
+  background: #4d4d4d;
+  color: #ffc266 !important;
+  font-weight: bold;
+}
+
+.active-track > .playlist-info-track,
+.active-track > .playlist-duration,
+.active-track > .playlist-btn-play {
+  color: #ffc266 !important;
+}
+
+.playlist-btn-play {
+  pointer-events: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.fas {
+  color: #ffc266;
+  font-size: 20px;
+}
+
+#loop-btn.active-loop-one .fas {
+  color: #66ff8a;
+}
+
+#loop-btn.active-loop-all .fas {
+  color: #ff5555;
+}
+
+#shuffle-btn.active-shuffle .fas {
+  color: #ffffff;
+}
+
+.linkedin-link {
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+  color: rgb(14, 206, 240);
+  text-decoration: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .player-wrapper {
+    padding: 5px;
+  }
+
+  .player-ctn {
+    padding: 8px;
+  }
+
+  .player-heading {
+    font-size: 1.2em;
+  }
+
+  .file-input {
+    width: 90%;
+    max-width: none;
+    font-size: 14px;
+  }
+
+  .infos-ctn {
+    padding-top: 5px;
+    flex-direction: column;
+  }
+
+  .timer, .title, .duration {
+    margin: 3px 0;
+  }
+
+  .title {
+    max-width: none;
+  }
+
+  .btn-ctn {
+    flex-wrap: wrap;
+  }
+
+  .btn-action, .btn-mute {
+    width: 25px;
+  }
+
+  .fas {
+    font-size: 16px;
+  }
+
+  .playlist-track-ctn > div {
+    margin: 5px;
+  }
+
+  .playlist-info-track,
+  .playlist-duration {
+    font-size: 12px;
+  }
+
+  #myProgress {
+    height: 6px; /* Slightly thinner */
+  }
+}
+
+@media (max-width: 480px) {
+  .player-heading {
+    font-size: 1em;
+  }
+
+  .file-input {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .file-input::-webkit-file-upload-button {
+    padding: 4px 8px;
+  }
+
+  .btn-ctn > div {
+    margin: 5px 3px;
+  }
+
+  .btn-action, .btn-mute {
+    width: 20px;
+  }
+
+  .fas {
+    font-size: 14px;
+  }
+
+  .playlist-ctn {
+    max-height: 150px;
+  }
+
+  #myProgress {
+    height: 5px;
+  }
+}
